@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>select-course</title>
+  <link rel="stylesheet" href="/static/css/page.css">
+</head>
+<body background="/static/image/register.jpg" style=" background-repeat:no-repeat ;background-size:100% 100%;
+background-attachment: fixed;">
+<header>
+  <nav>
+    <div class="logo">Gymnasium reservation system</div>
+    <div class="mobile-menu">
+      <div class="line1"></div>
+      <div class="line2"></div>
+      <div class="line3"></div>
+    </div>
+    <ul class="nav-list">
+      <li><a href="index">Home</a></li>
+      <li><a href="course">Appointment</a></li>
+      <li><a href="venue">Venue</a></li>
+      <li><a href="select-course">Course</a></li>
+      <li><a href="personal">Personal</a></li>
+    </ul>
+  </nav>
+</header>
+<center>
+  <div class="content">
+    <h4>All free course</h4>
+    <table>
+      <tr>
+        <th>course number</th>
+        <th>course name</th>
+        <th>teacher</th>
+        <th>time</th>
+        <th>state</th>
+      </tr>
+      <tr th:each="course : ${course_list}">
+        <td th:text="'#'+${course.getId()}">1</td>
+        <td th:text="${course.getVenue_name()}">Badminton</td>
+        <td th:text="${course.getCourse_name()}"></td>
+        <td th:text="${venue.getTime()}">
+          08:00-09:35 Mon
+        </td>
+
+        <td>
+          <button class="btn" type="submit"><a th:href="'select-venue?id='+${venue.getId()}+'&userid='+${userid}">JOIN</a></button>
+          </form>
+        </td>
+      </tr>
+
+    </table>
+  </div>
+  <button class="btn1"><a href="course">View reservation</a></button>
+</center>
+
+<script src="/static/js/page.js"></script>
+</body>
+</html>
